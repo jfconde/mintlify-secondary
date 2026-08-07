@@ -1,0 +1,8 @@
+.vscode
+.DS_Store
+thumbs.db
+node_modules
+.env
+.idea
+.claude
+.github

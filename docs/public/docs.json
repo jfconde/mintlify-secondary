@@ -1,0 +1,119 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "versions": ["v1", "v2"],
+  "theme": "maple",
+  "fonts": {
+    "family": "Archivo"
+  },
+  "servers": [{ "url": "https://api.payrails.com" }],
+  "displayUpdatedDate": true,
+  "name": "Payrails Docs (Juan test)",
+  "colors": {
+    "primary": "#0a6cff",
+    "light": "#0a6cff",
+    "dark": "#2222ff"
+  },
+  "appearance": {
+    "default": "light"
+  },
+  "background": {
+    "decoration": "grid",
+    "color": {
+      "light": "#fff"
+    }
+  },
+  "anchors": {
+    "eyebrows": "breadcrumbs"
+  },
+  "favicon": "/favicon.png",
+  "metadata": {
+    "timestamp": true
+  },
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Payrails (test)",
+        "href": "https://payrails.com"
+      }
+    ]
+  },
+  "contextual": {
+    "options": [
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ]
+  },
+  "footer": {
+    "socials": {
+      "x": "https://x.com/Payrails_com",
+      "github": "https://github.com/payrails",
+      "linkedin": "https://www.linkedin.com/company/payrails"
+    }
+  },
+  "navigation": {
+    "global": {
+      "anchors": []
+    },
+    "tabs": [
+      {
+        "tab": "Guides",
+        "icon": "book-open",
+        "groups": [
+          {
+            "refId": "web-sdk-guides",
+            "group": "Web-sdk",
+            "icon": "rocket",
+            "root": "web-sdk/getting-started",
+            "pages": [
+              "web-sdk/getting-started",
+              {
+                "group": "Explanation",
+                "icon": "rocket",
+                "pages": [
+                  "web-sdk/explanation/appearance",
+                  "web-sdk/explanation/architecture",
+                  "web-sdk/explanation/google-pay-hosting"
+                ]
+              },
+              {
+                "group": "How-to",
+                "icon": "question",
+                "pages": [
+                  "web-sdk/how-to/add-alternative-payment-methods",
+                  "web-sdk/how-to/add-wallet-payments",
+                  "web-sdk/how-to/customize-appearance",
+                  "web-sdk/how-to/integrate-dropin",
+                  "web-sdk/how-to/integrate-elements",
+                  "web-sdk/how-to/integrate-secure-fields",
+                  "web-sdk/how-to/migration-v6-agent",
+                  "web-sdk/how-to/migration-v6",
+                  "web-sdk/how-to/work-with-stored-instruments"
+                ]
+              },
+              {
+                "group": "Reference",
+                "icon": "book",
+                "pages": [
+                  "web-sdk/reference/appearance-reference",
+                  "web-sdk/reference/browser-support",
+                  "web-sdk/reference/events-reference",
+                  "web-sdk/reference/payrails-reference"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
