@@ -71,8 +71,7 @@
         "groups": [
           {
             "refId": "web-sdk-guides",
-            "group": "Web-sdk",
-            "icon": "rocket",
+            "group": "Web SDK - External guides",
             "root": "web-sdk/getting-started",
             "pages": [
               "web-sdk/getting-started",

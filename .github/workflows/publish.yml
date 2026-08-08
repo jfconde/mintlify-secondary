@@ -24,7 +24,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: jfconde/mintlify-burner
-          ref: gh-setup # TO-DO: change to main
+          ref: main
           token: ${{ secrets.TARGET_REPO_TOKEN }}
           path: target
           persist-credentials: true
@@ -47,5 +47,5 @@ jobs:
             echo "No changes to publish."
           else
             git commit -m "docs: sync web-sdk from mintlify-secondary@${GITHUB_SHA::7}"
-            git push origin gh-setup #TO-DO: change to main
+            git push origin main
           fi
