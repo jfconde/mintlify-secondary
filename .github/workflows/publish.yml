@@ -1,0 +1,51 @@
+name: Publish web-sdk docs to target repo
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "docs/public/**"
+      - "scripts/publish.mjs"
+      - ".github/workflows/publish.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: publish-web-sdk
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout secondary (source) repo
+        uses: actions/checkout@v4
+
+      - name: Checkout target repo
+        uses: actions/checkout@v4
+        with:
+          repository: jfconde/mintlify-burner
+          ref: main
+          token: ${{ secrets.TARGET_REPO_TOKEN }}
+          path: target
+          persist-credentials: true
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Copy content and merge docs.json
+        run: node scripts/publish.mjs target
+
+      - name: Commit and push to target
+        working-directory: target
+        run: |
+          git config user.name "docs-bot"
+          git config user.email "docs-bot@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to publish."
+          else
+            git commit -m "docs: sync web-sdk from mintlify-secondary@${GITHUB_SHA::7}"
+            git push origin main
+          fi
