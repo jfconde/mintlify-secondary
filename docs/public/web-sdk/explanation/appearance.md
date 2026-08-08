@@ -1,3 +1,11 @@
+{/* 
+  =======================================================================
+  READ-ONLY FILE! DO NOT EDIT IN MINTLIFY EDITOR.
+  This content is synced automatically from: github.com/your-org/secondary-repo
+  Edits made here will be overwritten on the next sync build.
+  =======================================================================
+*/}
+
 # The appearance system
 
 How you control the look of Payrails elements, and why styling works the way it
