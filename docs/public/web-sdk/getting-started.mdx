@@ -1,7 +1,17 @@
 # Payrails Web SDK
 
-<div class="editor-note">
-  **EDITOR NOTE:** Do not update this code snippet without checking the v2 schema first!
+<div
+  class="editor-note"
+  style={{
+    backgroundColor: "#fff346",
+    fontSize: '24px',
+    lineHeight: 1.25,
+    padding: "16px",
+    border: "solid 2px #ffca2b",
+  }}
+>
+  **EDITOR NOTE:** Do not update this code snippet without checking the v2
+  schema first!
 </div>
 
 ![](/images/web-sdk/pr.jpg)
@@ -40,11 +50,11 @@ bundle (and its styles) for the version your session was created with, so
 `await` it:
 
 ```js
-import { Payrails } from '@payrails/web-sdk';
+import { Payrails } from "@payrails/web-sdk";
 
 const payrails = await Payrails.init(clientInitResponse, {
   events: {
-    onClientInitialized: () => console.log('SDK ready'),
+    onClientInitialized: () => console.log("SDK ready"),
   },
 });
 ```
@@ -54,11 +64,11 @@ You now have a `payrails` client. Handle payment results with the instance-level
 wire them once (secure fields are different; see that section):
 
 ```js
-payrails.on('success', (event) =>
-  console.log('Payment success', event.paymentMethodCode)
+payrails.on("success", (event) =>
+  console.log("Payment success", event.paymentMethodCode),
 );
-payrails.on('failed', (event) =>
-  console.log('Payment failed', event.data?.code)
+payrails.on("failed", (event) =>
+  console.log("Payment failed", event.data?.code),
 );
 ```
 
@@ -79,7 +89,7 @@ do not list methods yourself.
 
 ```js
 const dropin = payrails.dropin({});
-dropin.mount('#dropin');
+dropin.mount("#dropin");
 ```
 
 #### Elements
@@ -95,12 +105,12 @@ disabled until the form is valid and starts the payment on click.
 
 ```js
 const cardForm = payrails.cardForm({ showCardHolderName: true });
-cardForm.mount('#card-form');
+cardForm.mount("#card-form");
 
 const payButton = payrails.paymentButton({
-  translations: { label: 'Pay now' },
+  translations: { label: "Pay now" },
 });
-payButton.mount('#pay-button');
+payButton.mount("#pay-button");
 ```
 
 #### Secure fields
@@ -119,14 +129,14 @@ full control of the card UI; see the
 ```
 
 ```js
-import { ElementType } from '@payrails/web-sdk';
+import { ElementType } from "@payrails/web-sdk";
 
 const container = payrails.collectContainer({});
 const cardNumber = container.createCollectElement({
   type: ElementType.CARD_NUMBER,
   required: true,
 });
-cardNumber.mount('#card-number');
+cardNumber.mount("#card-number");
 // create and mount CVV and expiry the same way (each with required: true),
 // then container.collect()
 ```
